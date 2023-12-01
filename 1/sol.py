@@ -1,8 +1,6 @@
 input_file = open("input.txt", "r")
 
-total = 0
 arr = []
-
 numbers = {
     'one': '1',
     'two': '2',
@@ -28,8 +26,7 @@ for line in input_file:
                 if key in current_word:
                     if first_char is None:
                         first_char = numbers[key]
-                    else:
-                        last_char = numbers[key]
+                    last_char = numbers[key]
                     current_word = char
 
         # Check for a integer.
@@ -39,13 +36,9 @@ for line in input_file:
             last_char = char
 
     # Concatenate the first and last number.
-    if last_char is not None:
-        arr.append(int(first_char + last_char))
-    elif first_char is not None:
-        arr.append(int(first_char + first_char))
+    arr.append(int(first_char + last_char))
 
 input_file.close()
 
 print(arr)
 print(sum(arr))
-
